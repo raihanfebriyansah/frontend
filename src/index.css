@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #F4F4F4;
+}
+
+.text-primary {
+  @apply text-[#159030];
+}
+
+.border-primary {
+  @apply border-[#159030];
+}
+
+.bg-primary {
+  @apply bg-[#159030];
+}
+
+.anchor-center {
+  justify-items: anchor-center;
+}
+
+#file-upload {
+  display: none;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  cursor: pointer;
+}
