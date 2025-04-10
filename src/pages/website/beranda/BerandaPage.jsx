@@ -47,7 +47,7 @@ const BerandaPage = () => {
         {spesialisasiTakeAllQueries?.data?.map((spesialisasi) => (
           <article key={spesialisasi.id} className="capitalize bg-white rounded-lg shadow-xl">
             <figure className="h-[250px] anchor-center">
-              <img src={spesialisasi.fotoUrl ? spesialisasi.fotoUrl : "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="} alt={spesialisasi.nama} className="object-cover object-center w-full h-full rounded-t-lg" />
+              <img src={spesialisasi.foto ? spesialisasi.foto : "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="} alt={spesialisasi.nama} className="object-cover object-center w-full h-full rounded-t-lg" />
             </figure>
             <div className="flex flex-col gap-5 p-5">
               <h2 className="text-2xl font-bold text-primary">{spesialisasi.nama}</h2>
