@@ -1,4 +1,3 @@
-
 import { AdminRepository } from '@/repositories';
 import { useMutation } from '@tanstack/react-query';
 import Cookies from 'js-cookie';
@@ -11,9 +10,22 @@ const useProfilMutations = () => {
   const navigate = useNavigate();
 
   const updateProfil = useMutation({
-    mutationFn: ({ id, payload }) => AdminRepository.update(id, payload),
+    mutationFn: ({ id, formData }) => {
+      if (!id) {
+        throw new Error("ID is required to update the profile.");
+      }
+      return AdminRepository.update(id, formData);
+    },
     onSuccess: (data) => {
-      console.log(data)
+      toast.success(`Profil berhasil diubah!`, {
+        duration: 4000,
+        position: 'top-center',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
       signIn({
         auth: {
           token: Cookies.get("_auth"),
@@ -25,8 +37,10 @@ const useProfilMutations = () => {
           token: Cookies.get("_auth"),
         },
       });
-      navigate("/admin/profil", { replace: true });
-      toast.success(`Profil berhasil diubah!`, {
+      navigate("/admin/profil");
+    },
+    onError: (error) => {
+      toast.error(`Gagal mengubah profil: ${error.message}`, {
         duration: 4000,
         position: 'top-center',
         style: {

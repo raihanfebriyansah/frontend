@@ -24,7 +24,7 @@ const Navbar = () => {
       <Menu>
         <MenuButton>
           <div className='flex items-center gap-2'>
-            <img src={auth.user.foto ? `${import.meta.env.VITE_BACKEND_BASE_URL}/uploads/profil/${auth.user.foto}` : "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="} className='object-cover object-center bg-red-500 rounded-full' alt={`foto profil ${auth.user.name}`} width={50} />
+            <img src={auth.user.foto ? auth.user.foto : "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="} className='object-cover object-center bg-red-500 rounded-full' alt={`foto profil ${auth.user.name}`} width={50} />
             <Icon name="arrow-down" className="w-4 h-4 text-gray-500" />
           </div>
         </MenuButton>

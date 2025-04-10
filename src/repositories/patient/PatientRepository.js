@@ -51,14 +51,6 @@ export const remove = async (id) => {
 }
 
 export const uploadFoto = async (id, formData) => {
-  const { image } = formData;
-  const payload = {
-    foto: image[0],
-  };
-
-  if (image && image.length > 0 && image[0] instanceof File) {
-    payload.foto = image[0];
-  }
-  const response = await patientService.uploadFoto(id, payload);
+  const response = await patientService.uploadFoto(id, formData);
   return response;
 }

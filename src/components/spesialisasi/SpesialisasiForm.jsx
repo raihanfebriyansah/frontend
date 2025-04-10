@@ -107,7 +107,7 @@ const SpesialisasiForm = ({ data, formMode }) => {
           {formMode === "edit" && data?.foto && (
             <div className="mt-2">
               <p>Current image:</p>
-              <img src={data.fotoUrl} alt="Current" className="h-24 mt-1 rounded" />
+              <img src={data.foto} alt="Current" className="h-24 mt-1 rounded" />
             </div>
           )}
         </div>

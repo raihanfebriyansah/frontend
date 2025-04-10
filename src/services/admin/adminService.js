@@ -1,8 +1,11 @@
 import api from '../api';
 
-export const updateAdmin = async (id, payload) => {
+export const updateAdmin = async (id, formData) => {
+  if (!id) {
+    throw new Error("ID is required to update the admin.");
+  }
   try {
-    const response = await api.post(`/admin/update/${id}`, payload, {
+    const response = await api.post(`/admin/update/${id}`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },

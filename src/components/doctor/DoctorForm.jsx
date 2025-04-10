@@ -32,6 +32,7 @@ const doctorFormSchema = z.object({
     ),
   name: z.string().nonempty("Nama doctor wajib diisi"),
   active: z.string().default("true"),
+  spesialisasiId: z.string().nonempty("Spesialisasi wajib diisi"),
 });
 
 const DoctorForm = ({ data, formMode }) => {
@@ -62,6 +63,7 @@ const DoctorForm = ({ data, formMode }) => {
   });
 
   const onSubmit = (formData) => {
+    console.log("Form data:", formData);
     setPendingFormData(formData);
     setShowUpdateAlert(true);
   };
@@ -108,7 +110,7 @@ const DoctorForm = ({ data, formMode }) => {
           {formMode === "edit" && data?.foto && (
             <div className="mt-2">
               <p>gambar saat ini:</p>
-              <img src={data.fotoUrl} alt="Current" className="h-24 mt-1 rounded" />
+              <img src={data.foto} alt="Current" className="h-24 mt-1 rounded" />
             </div>
           )}
         </div>
